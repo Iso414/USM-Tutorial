@@ -1,4 +1,6 @@
-C:\Users\RZA\Desktop\USM-Tutorial/USM_tutorial.pdf: C:\Users\RZA\Desktop\USM-Tutorial/USM_tutorial.tex
-	tectonic -X compile USM-Tutorial/USM_tutorial.tex
+usm_tutorial = usm_tutorial
+
+$usm_tutorial.pdf: $ usm_tutorial.tex
+	tectonic $ usm_tutorial.tex
 clean:
-	rm -v C:\Users\RZA\Desktop\USM-Tutorial/USM_tutorial.pdf
+	rm -f $ usm_tutorial.pdf $ usm_tutorial.aux $ usm_tutorial.log $ usm_tutorial.out
