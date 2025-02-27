@@ -21,11 +21,11 @@ jobs:
           conda env create -f environment.yml
       - name: Run Commands Inside Environment
         run: |
-          conda run -n usm-tutorial make gerar-pdf
+          # Certifique-se de que o Makefile esteja correto antes de executar
+          make gerar-pdf
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
           name: usm_tutorial.pdf
           path: usm_tutorial.pdf
-
 
