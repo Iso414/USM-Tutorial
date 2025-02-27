@@ -23,32 +23,13 @@ jobs:
         run: |
           make
 
-      - name: Upload PDF
-        uses: actions/upload-artifact@v4
-        id: upload
-        with:
-          name: usm_tutorial.pdf
-          path: usm_tutorial.pdf
-
-      - name: Install GitHub CLI
+      - name: add PDF to repository
         run: |
-          curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyring/githubcli-archive-keyring.gpg
-          echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyring/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-          sudo apt update
-          sudo apt install gh -y
-
-      - name: Download and add PDF to repository
-        run: |
-          # Baixa o artefato usando a GitHub CLI
-          gh run download -n usm_tutorial.pdf
 
           # Adiciona o PDF ao repositório
           git add usm_tutorial.pdf
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.name 'Iso'
-          git config --global user.email 'knightt851@gmail.com'
-          git commit -m "Pdf file added to repository"
+          git commit -m "Adicionado PDF ao repositório"
           git push origin main
+
+      
 
