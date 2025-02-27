@@ -30,15 +30,6 @@ jobs:
           name: usm_tutorial.pdf
           path: usm_tutorial.pdf
 
-      - name: Get artifact URL
-        run: |
-          # Obter a URL do artefato
-          echo "ARTIFACT_URL=$(curl -s -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
-            https://api.github.com/repos/Iso414/USM-Tutorial/actions/artifacts \
-            | jq -r '.artifacts[-1].archive_download_url') >> $GITHUB_ENV"
-
       - name: Update README
         run: |
-          # Atualizar o README com a nova URL do artefato
-          sed -i "s|https://github.com/Iso414/USM-Tutorial/actions/runs/[0-9]\+/artifacts/[0-9]\+|$ARTIFACT_URL|g" README.md
-
+          echo "Novo link: https://novo-link.com" >> README.md
