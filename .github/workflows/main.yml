@@ -19,17 +19,13 @@ jobs:
       - name: Create Conda Environment
         run: |
           conda env create -f environment.yml
-      - name: Activate Conda Environment
+      - name: Run Commands Inside Environment
         run: |
-          conda activate usm-tutorial
-      - name: Install Tectonic
-        uses: wtfjoke/setup-tectonic@v3
-      - name: Gerar PDF
-        run: |
-          make gerar-pdf
+          conda run -n usm-tutorial make gerar-pdf
       - name: Upload PDF
         uses: actions/upload-artifact@v4
         with:
           name: usm_tutorial.pdf
           path: usm_tutorial.pdf
+
 
