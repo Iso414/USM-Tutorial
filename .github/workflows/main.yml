@@ -32,7 +32,12 @@ jobs:
 
       - name: Update README
         run: |
-          echo "Novo link: https://novo-link.com" >> README.md
+          # Captura o link do artefato
+          ARTEFATO_LINK="https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts/${GITHUB_ACTION.upload.name}"
+
+          # Atualiza o README
+          echo "Atualizando README com o link do artefato..."
+          sed -i "s|link_antigo|${ARTEFATO_LINK}|g" README.md
 
       - name: Commit and push changes
         run: |
