@@ -22,16 +22,5 @@ jobs:
       - name: Executar Makefile
         run: |
           make
-
-      - name: add PDF to repository
-        run: |
-
-          # Adiciona o PDF ao repositório
-          git config --global user.name 'Iso'
-          git config --global user.email 'knightt851@gmail.com'
-          git add usm_tutorial.pdf
-          git commit -m "Adicionado PDF ao repositório"
-          git push origin main
-
       
 
