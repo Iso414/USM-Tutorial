@@ -16,7 +16,7 @@ jobs:
           # Comando para gerar o PDF aqui
           make gerar-pdf
       - name: Upload PDF
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: usm_tutorial.pdf
           path: usm-tutoria/usm_tutorial.pdf
