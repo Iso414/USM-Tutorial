@@ -11,17 +11,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Setup Miniconda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          channels: conda-forge
-          python-version: 3.12
-      - name: Create Conda Environment
+      - name: Setup Tectonic
+        uses: wtfjoke/setup-tectonic@v3
+      - name: Executar Makefile
         run: |
-          conda env create -f environment.yml
-      - name: Run Commands Inside Environment
-        run: |
-          # Certifique-se de que o Makefile esteja correto antes de executar
           make gerar-pdf
       - name: Upload PDF
         uses: actions/upload-artifact@v4
