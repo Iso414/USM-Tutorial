@@ -29,20 +29,3 @@ jobs:
         with:
           name: usm_tutorial.pdf
           path: usm_tutorial.pdf
-
-      - name: Update README
-        run: |
-          # Captura o link do artefato
-          ARTEFATO_LINK="https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
-
-          # Atualiza o README
-          echo "Atualizando README com o link do artefato..."
-          sed -i "s|link_antigo|${ARTEFATO_LINK}|g" README.md
-
-      - name: Commit and push changes
-        run: |
-          git config --global user.name 'Iso'
-          git config --global user.email 'knightt851@gmail.com'
-          git add README.md
-          git commit -m "Pdf file update"
-          git push origin main
