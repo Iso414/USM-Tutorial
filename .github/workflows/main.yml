@@ -29,3 +29,19 @@ jobs:
         with:
           name: usm_tutorial.pdf
           path: usm_tutorial.pdf
+
+      - name: Download and add PDF to repository
+        run: |
+          # Baixa o artefato
+          curl -O -L "https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts/${GITHUB_ACTION.upload.name}/usm_tutorial.pdf"
+
+          # Adiciona o PDF ao repositório
+          git add usm_tutorial.pdf
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'Iso'
+          git config --global user.email 'knightt851@gmail.com'
+          git commit -m "Pdf file added to repository"
+          git push origin main
+f
