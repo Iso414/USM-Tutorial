@@ -33,3 +33,11 @@ jobs:
       - name: Update README
         run: |
           echo "Novo link: https://novo-link.com" >> README.md
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'Iso'
+          git config --global user.email 'knightt851@gmail.com'
+          git add README.md
+          git commit -m "Pdf file update"
+          git push origin main
