@@ -23,5 +23,13 @@ jobs:
         run: |
           conda activate usm-tutorial
       - name: Install Tectonic
+        uses: wtfjoke/setup-tectonic@v3
+      - name: Gerar PDF
         run: |
-	  wtfjoke/setup-tectonic
+          make gerar-pdf
+      - name: Upload PDF
+        uses: actions/upload-artifact@v4
+        with:
+          name: usm_tutorial.pdf
+          path: usm_tutorial.pdf
+
