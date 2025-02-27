@@ -11,14 +11,42 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          # Checkout com permissão para commitar mudanças
+          token: ${{ secrets.GITHUB_TOKEN }}
+          fetch-depth: 0
+
       - name: Setup Tectonic
         uses: wtfjoke/setup-tectonic@v3
+
       - name: Executar Makefile
         run: |
           make
+
       - name: Upload PDF
         uses: actions/upload-artifact@v4
+        id: upload
         with:
           name: usm_tutorial.pdf
           path: usm_tutorial.pdf
+
+      - name: Get artifact URL
+        run: |
+          # Obter a URL do artefato
+          echo "ARTIFACT_URL=$(curl -s -H 'Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+            https://api.github.com/repos/Iso414/USM-Tutorial/actions/artifacts \
+            | jq -r '.artifacts[-1].archive_download_url') >> $GITHUB_ENV"
+
+      - name: Update README
+        run: |
+          # Atualizar o README com a nova URL do artefato
+          sed -i "s|https://github.com/Iso414/USM-Tutorial/actions/runs/[0-9]\+/artifacts/[0-9]\+|$ARTIFACT_URL|g" README.md
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add README.md
+          git commit -m "Update README with new artifact link"
+          git push origin main
 
