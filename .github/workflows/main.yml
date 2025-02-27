@@ -11,17 +11,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Instalar Tectonic
-        run: |
-          # Instalar Tectonic se necessário
-          sudo apt-get update
-          sudo apt-get install -y tectonic
-      - name: Gerar PDF
-        run: |
-          make gerar-pdf
-      - name: Upload PDF
-        uses: actions/upload-artifact@v4
+      - name: Setup Miniconda
+        uses: conda-incubator/setup-miniconda@v2
         with:
-          name: usm_tutorial.pdf
-          path: usm_tutorial.pdf
-
+          channels: conda-forge
+          python-version: 3.12
+      - name: Create Conda Environment
+        run: |
+          conda env create -f environment.yml
+      - name: Activate Conda Environment
+        run: |
+          conda activate usm-tutorial
+      - name: Install Tectonic
+        run: |
+	  wtfjoke/setup-tectonic
