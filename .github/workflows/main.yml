@@ -44,4 +44,3 @@ jobs:
           git config --global user.email 'knightt851@gmail.com'
           git commit -m "Pdf file added to repository"
           git push origin main
-f
