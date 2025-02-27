@@ -1,4 +1,4 @@
-name: Gerar PDF
+name: Gerar-PDF
 
 on:
   push:
