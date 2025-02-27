@@ -33,7 +33,7 @@ jobs:
       - name: Update README
         run: |
           # Captura o link do artefato
-          ARTEFATO_LINK="https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts/${GITHUB_ACTION.upload.name}"
+          ARTEFATO_LINK="https://github.com/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
 
           # Atualiza o README
           echo "Atualizando README com o link do artefato..."
