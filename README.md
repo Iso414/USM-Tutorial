@@ -1,2 +1,2 @@
-Just training with github stuff, but you can check the usm-tutorial pdf <a href="https://github.com/Iso414/USM-Tutorial/blob/main/usm_tutorial.pdf">here</a>
+learning bash, tex and git stuff, then creating an ultra spin magnetometer tutorial file wich can be cheked here:  <a href="https://github.com/Iso414/USM-Tutorial/blob/main/usm_tutorial.pdf">here</a>
 

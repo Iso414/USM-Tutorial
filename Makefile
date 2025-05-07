@@ -6,3 +6,4 @@ clean:
 gerar-pdf:
 	usm_tutorial.pdf
 
+#still nothing else to  say here just fixing some stuff
