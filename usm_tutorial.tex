@@ -1,7 +1,7 @@
 \documentclass{paper}[geophysics]
 \usepackage{graphicx} % Required for inserting images
 \usepackage[a4paper, left=2cm, right=2cm, top=3cm, bottom=3cm]{geometry}
-\title{Processo de inicialização do USM}
+\title{Processo de inicialização do USM e do AFD}
 \author{ Iso Martins }
 \date{February 2025}
 
@@ -12,12 +12,12 @@
 \section{introdução}
   Resuminho bem mais ou menos da inicialização do Ultra Spinner Magnetometer.\\
   Para implementar referencias corretas: Doi2bib.org!\\
-  Agora mais que nunca eu vou ter que rever um pouco desse tutorial e eu quero tentar escrever os relatorios do projeto aqui
 	
 \section{Informações importantes}
 Ambos o \emph{Software e Hardware} são prototipos e ainda estao em desenvolvimento.\\
 O maquinário é Bivolt, mas pode ter mal funcionamento no 110V.\\
 Nunca fechar o prompt aberto junto do Software USM control.\\
+\emph{Não usar nada como celular fone de ouvido relogios digitais ou nada do tipo, pois afeta MUITO a calibragem e as medidas}\\
 
 \section{Inicialização}
 Para inicializar o USM ligar os dois interruptores do amplificador(primeiro o de baixo, depois o de cima), em sequencia aumentar a frequencia do amplificador ao maximo.\\
@@ -25,9 +25,40 @@ Após isso, ja no computador inicializar o softawe do USM (USM control), realiza
 
 \section{Calibragem}
 Apos a inicialização do equipamento e abertura do software, conectamos o software ao hardware manualmente.\\
-Para a calibração, colocamos uma amostra modelo disponibilizada pelo fornecedor no holder da maquina e tiramos as tres medidas iniciais no formato NRM, que o proprio software solicita, temos tambem que calibrar o holder mas é basicamente apertar um botão, se tudo der certo no futuro eu implemento umas imagens nesse tutorial. Agora uma das coisas mais importantes e que ta sendo dificil é achar os parametros corretos de calibragem do aparelho, o site deles so tem um folhetinho vendendo o projeto mas nao tem nada sobre como fazer a calibragem, as infos (se tudo der certo), vao vir por whatsapp
+Para a calibração, colocamos uma amostra modelo disponibilizada pelo fornecedor no holder da maquina e tiramos as tres medidas iniciais no formato NRM, que o proprio software solicita, temos tambem que calibrar o holder mas é basicamente apertar um botão. Agora uma das coisas mais importantes e que ta sendo dificil é achar os parametros corretos de calibragem do aparelho, o site deles so tem um folhetinho vendendo o projeto mas nao tem nada sobre como fazer a calibragem, eu vou usar a calibração atual que a peça ta dando mas eu vou inserir os valores antigos de calibração aqui no documento para mais tarde.\\
+
+\newpage
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{image1.png}
+    \caption{Valores de calibragem antigos}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.5\linewidth]{image2.png}
+    \caption{Valores de calibragem antigos e valores novos feitos após a maquina reiniciar}
+    \label{fig:enter-label}
+\end{figure}
 
 \section{Tiragem de medidas}
 Com o Software aberto e a calibragem ja realizada, iniciamos as medidas das amostras, o processo de Tiragem de medida no USM é identico ao que foi realizado na calibração do mesmo. Após isso passamos a amostra para o segundo software, o AFDE (esse nao precisa necessariamente ser calibrado) que realiza a magnetização da amostra.
 
+\newpage
+
+\section{Primeira seção de medidas}
+Iniciamos o equipamento e o software do USM como explicado a cima e foi realizada a calibragem do equipamento sem nenhum equipamento que possa atrapalhar (como celular, fone sem fio e etc)
+a calibragem obtida foi a seguinte:\\
+
+\begin{center}
+    \includegraphics[width=0.5\linewidth, height=6cm]{image3.png}
+\end{center}
+
+Com isso foi analizado a pilha de amostras PSA-C em 3 pontos (p1, p2 e p5 onde cada um solicita que a amostra fique em determinada posição), e as medidas obtidas foram:
+
+$inserir aqui a planilha ou uma tabelinha simples com os resultados$
+
+Os resultados obtidos nao fazem o MENOR sentido, cada amostra tem uma medida completamente diferente uma da outra mesmo com o equipamento calibrado sem nenhuma alteração no campo e colocando elas nas posições especificas de p1 p2 e p5, bem provavel que algo esteja muito errado mas ja existe um primeiro teste.
 \end{document}
